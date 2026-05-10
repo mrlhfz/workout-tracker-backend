@@ -5,7 +5,9 @@ const { initDb } = require('./db/database');
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-app.use(cors());
+app.use(cors({
+  origin: ['https://mrlhfz.github.io', 'http://localhost:5173']
+}));
 app.use(express.json());
 
 app.get('/health', (req, res) => res.json({ status: 'ok', timestamp: new Date().toISOString() }));
